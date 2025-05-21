@@ -1,0 +1,949 @@
+<!-- Archivo con función expandir/colapsar rutas -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutas de Transporte</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .search-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .search-box {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .search-button {
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-button:hover {
+      background-color: #004080;
+    }
+    .route-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      padding: 1rem;
+    }
+    .route-header {
+      background-color: #004080;
+      color: white;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .route-content {
+      display: none;
+      margin-top: 1rem;
+    }
+    .feature-list, .stops-list ol {
+      padding-left: 1.2rem;
+    }
+    .feature-list li::before {
+      content: "✓ ";
+      color: #0066cc;
+    }
+    iframe, img {
+      max-width: 100%;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    h3 {
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RutasPachuca</h1>
+    <p>Información completa sobre rutas de transporte público</p>
+  </header>
+  <div class="container">
+    <div class="search-container">
+      <h2>Buscar Rutas</h2>
+      <div class="search-box">
+        <input class="search-input" placeholder="Buscar por número de ruta, nombre o parada...">
+        <button class="search-button">Buscar</button>
+      </div>
+    </div>
+
+<!-- Aquí se insertan todas las rutas ya procesadas, incluidas 29, 10, 108, etc.
+     Por simplicidad en esta demo, se han insertado algunas como ejemplo -->
+      <!-- Ruta 1 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 29 PCH C - A. Camacho - Central
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 5:00 AM - 11:00 PM</li>
+      <li>Frecuencia: Cada 15 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Central de Autobuses</li>
+        <li>Cubitos</li>
+        <li>Hospital General</li>
+        <li>Seguro Social</li>
+        <li>Avila Camacho</li>
+      </ol>
+    </div>
+    <h3>Modelo de la combi</h3>
+    <img src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQXNueW20o0SZTvPTSQBtPDASdOWnZfL5cZUjgiJEdIVzY?width=1024" width="1024" height="auto" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/embed?..." width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 2 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 10 PCH C - Centro - 11 de Julio
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 5:30 AM - 10:30 PM</li>
+      <li>Frecuencia: Cada 20 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Centro</li>
+        <li>parque Pasteur</li>
+        <li>Hospital General</li>
+        <li>Minera</li>
+        <li>11 de Julio</li>
+        <li>COBAEH</li>
+      </ol>
+    </div>
+    <h3>Autobús de la Ruta 10</h3>
+    <img src="https://1drv.ms/i/c/bd58d539dbf23a32/IQTofDfWFVEFSLet-Hq5kPj-AaekCL2wO1XHAFNsHrbXi78" alt="Combi de Ruta 10">
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1V8NZO1XAZciCAw1khnLwbhce89tsVq0" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 3 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 108 PCH C - Ruta Unidad
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Paseos de Chavarría</li>
+        <li>Tuzos</li>
+        <li>Tulipanes</li>
+        <li>El Venado</li>
+        <li>La Calera</li>
+        <li>La Providencia</li>
+        <li>San Carlos</li>
+        <li>Camelinas</li>
+        <li>Santa Catarina</li>
+        <li>Morelos</li>
+        <li>Piracantos</li>
+        <li>El Palmar</li>
+        <li>Centro de Pachuca</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Minibús de la Ruta 108</h3>
+    <img src="c:\Users\julianee\OneDrive\Pictures\pagina web\Imagen de WhatsApp 2025-04-27 a las 14.29.16_a71c9d1c.jpg" alt="Combi de la Ruta 108">
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Hwq66aTIjNhInFj-aRLx3ou0V53X_sU" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 4 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 59 - Siglo XXI
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 5:30 AM - 10:30 PM</li>
+      <li>Frecuencia: Cada 20 minutos</li>
+      <li>añadido 008 llega hasta ese fraccionamiento</li>
+      <li> añadido 015 llega hasta Chavarría</li>
+      <li>las 001, 003, 008 tienen ligeras diferencias</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en el mercado Primero de Mayo, en los portales del centro de Pachuca</li>
+        <li>Parada en la papelería El Pato</li>
+        <li>Paso por el exconvento San Francisco</li>
+        <li>Paso por el parque Hidalgo</li>
+        <li>Parada en el jardín Luis Pasteur</li>
+        <li>Parada en el hospital del IMSS</li>
+        <li>Breve base en el hospital general de Pachuca</li>
+        <li>Paso por la avenida Francisco I Madero</li>
+        <li>Breve base en la colonia 11 de Julio</li>
+        <li>Parada en la terminal Estrella Blanca</li>
+        <li>Parada en la ciudad del conocimiento de la UAEH</li>
+        <li>Parada en El Zorro Abarrotero</li>
+        <li>Breve paso por la carretera Pachuca-Tulancingo</li>
+        <li>Desviación a la altura del aserradero La Surtidora</li>
+        <li>Parada en el colegio Alejandro Magno</li>
+        <li>Parada en la tienda Aurrera</li>
+        <li>Breve pase en el parque La Providencia Siglo XXI</li>
+        <li>Paso por los circuitos La Providencia, Camino y Paseos de Chavarría</li>
+        <li>Base en Paseos de Chavarría</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 15 minutos</small></p>
+    </div>
+    <h3>Combi de la Ruta 59</h3>
+    <img src="https://1drv.ms/i/c/bd58d539dbf23a32/IQTmjQmR31ydRomvc4Dyb8i3AVc82Mvfm37Mj-n8LBsrOQw?width=960&amp;height=540" alt="Combi de la Ruta 59">
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1wiZD6JABPnNrTzKgSiNQCxe0TXcq7bA&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 5 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 58 PCH C- Centro - Abasolo
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Salida del barrio Pirules</li>
+        <li>Paso por la Unidad Antorchista</li>
+        <li>Paso por la colonia 20 de Noviembre</li>
+        <li>Paso por el barrio San Bartolo</li>
+        <li>Recorrido por el bulevar Del Minero</li>
+        <li>Paso por el panteón municipal</li>
+        <li>Parada en el centro comercial Soriana Tutelar</li>
+        <li>Parada en la escuela Preparatoria 3 de la UAEH</li>
+        <li>Parada en el Centro Universitario Hidalguense</li>
+        <li>Parada en la plaza Juárez de Pachuca</li>
+        <li>Paso cerca del palacio de gobierno de Hidalgo</li>
+        <li>Parada en la presidencia municipal de Pachuca</li>
+        <li>Breve base cerca del mercado Primero de Mayo</li>
+        <li>Los Portales en el centro</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 58 PCH C</h3>
+    <img src="https://1drv.ms/i/c/bd58d539dbf23a32/IQTJWZPy86fDRbKdBUWYgp2MARxHkP71IH5tqqYhOt_vhOI?width=1024" width="1024" height="auto" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1UKteT4xA98IOcNwNUdobNr0Rwvy2k-E&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 6 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 08 PCH C - Centro - Chacón
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en El Pato del centro de Pachuca</li>
+        <li>Parada por el exconvento San Francisco</li>
+        <li>Paso por la Fototeca Nacional</li>
+        <li>Parada en el parque Hidalgo</li>
+        <li>Salida por Río de las Avenidas</li>
+        <li>Paso por el estadio Revolución</li>
+        <li>Parada en el centro comercial Sam’s Club</li>
+        <li>Desvío por el bulevar Everardo Márquez</li>
+        <li>Paso por el Instituto Nacional Electoral (INE)</li>
+        <li>Paso por oficinas de la Caasim</li>
+        <li>Salida por el llamado Trébol</li>
+        <li>Circulación por el bulevar Colosio</li>
+        <li>Parada en el CBTIs 8</li>
+        <li>Paso por el fraccionamiento El Saucillo</li>
+        <li>Paso por los condominios de El Chacón y colonia PRI Chacón</li>
+        <li>Parada en Plaza Q</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 08 PCH C</h3>
+    <img height="437" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQR7aCMxOyAkT4wyBjsT0L9wAaeKK9h4oqCV5hWJvS8NnBo?width=701&amp;height=437" width="701" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1Pz93rhnWntqEn75AV3UY6bIPT-eMxFY&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 7 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 107 PCH C- La Loma - Centro
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base colonia La Loma</li>
+        <li>Paso por oficinas del Instituto Mexicano del Seguro Social (IMSS)</li>
+        <li>Breve paso por el bulevar Colosio</li>
+        <li>Parada en el Aurrera de El Palmar</li>
+        <li>Condominios y fraccionamiento El Palmar</li>
+        <li>Paso por el Instituto Nacional de Migración (INM)</li>
+        <li>Paso por la Policía Industrial Bancaria del Estado de Hidalgo (PIBEH)</li>
+        <li>Parada en el fraccionamiento y Avenida Constitución</li>
+        <li>Paso por la Preparatoria 1</li>
+        <li>Parada en el Bioparque de Convivencias</li>
+        <li>Paso por oficinas de la delegación Hidalgo de la Secretaría de Bienestar</li>
+        <li>Paso muy breve por la avenida Benito Juárez</li>
+        <li>Paso por Correos de México</li>
+        <li>Parada en palacio de goberno</li>
+        <li>Breve paso por la avenida Madero</li>
+        <li>Parada en el parque Hidalgo</li>
+        <li>Paso por el teatro San Francisco</li>
+        <li>Parada por la iglesia San Francisco</li>
+        <li>Paso por la presidencia municipal de Pachuca</li>
+        <li>Base en el mercado Primero de Mayo</li>
+        <li>De regreso, pasa por las oficinas del DIF Hidalgo y los mercados Barreteros y Guzmán Mayer, además de una breve parte de la Calle Abasolo</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 107 PCH C</h3>
+    <img height="479" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQSLdw83ghELRrxBYsuD0nqzAVdS-egcRABk0aZK8W1u_ac?width=640&amp;height=479" width="640" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1j9fyVwnQY97wsNA2oEHfk87sO-ZB46o&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 8 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 74 PCH C - RUTA CTM
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en el ICEA de la UAEH</li>
+        <li>Paso por el ICSa</li>
+        <li>Paso por el ICSHu</li>
+        <li>Salones Finestra</li>
+        <li>Oficinas del IMSS</li>
+        <li>Unidad deportiva de Piracantos</li>
+        <li>Aurrerá de El Palmar</li>
+        <li>Intermédica</li>
+        <li>Complejo educativo Cedrus</li>
+        <li>Cetro de rehabilitación CRIH</li>
+        <li>Hospital Español</li>
+        <li>Gran Foro en El Palmar</li>
+        <li>Avenida Ferrocarril Central en Santa Julia</li>
+        <li>CENHIES</li>
+        <li>Puente Atirantado</li>
+        <li>Clínica 32 del IMSS</li>
+        <li>Escuelas telesecundarias 1 y 46</li>
+        <li>Paso cerca de Galerías</li>
+        <li>Oficinas de la delegación Hidalgo de la SICT</li>
+        <li>Plaza Del Valle</li>
+        <li>PRI Hidalgo</li>
+        <li>Plaza Gran Patio</li>
+        <li>Sexta sección del residencial San Javier</li>
+        <li>Cuartel de la Policía estatal</li>
+        <li>Agencias automotrices KIA y Hyundai</li>
+        <li>El Trébol</li>
+        <li>CBTIS número 8</li>
+        <li>Fraccionamiento de condominios El Chacón</li>
+        <li>Plaza comercial Q</li>
+        <li>Colinas de Plata</li>
+        <li>Cuartel de la Guardia Nacional</li>
+        <li>Walmart Villa Airosa</li>
+        <li>Centro médico Marfil</li>
+        <li>Colonia 11 de Julio</li>
+        <li>Preparatoria 4 de la UAEH</li>
+        <li>Base en la colonia Guadalupe</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 74</h3>
+    <img height="318" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQ_oFgPXYzrT4LL_rbJyUdrAUx4b9-b9ImnZP3c4C7WQis?width=567&amp;height=318" width="567" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1tqTwKX-SOjoS_CFt2v8FGVfLSPohqoM&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 9 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 74 PCH C - RUTA UNIVERSIDAD
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en el ICEA de la UAEH</li>
+        <li>Paso por el ICSa</li>
+        <li>Paso por el ICSHu</li>
+        <li>Salones Finestra</li>
+        <li>Oficinas del IMSS</li>
+        <li>Unidad deportiva de Piracantos</li>
+        <li>Aurrerá de El Palmar</li>
+        <li>Intermédica</li>
+        <li>Complejo educativo Cedrus</li>
+        <li>Cetro de rehabilitación CRIH</li>
+        <li>Hospital Español</li>
+        <li>Gran Foro en El Palmar</li>
+        <li>Avenida Ferrocarril Central en Santa Julia</li>
+        <li>CENHIES</li>
+        <li>Puente Atirantado</li>
+        <li>Clínica 32 del IMSS</li>
+        <li>Escuelas telesecundarias 1 y 46</li>
+        <li>Paso cerca de Galerías</li>
+        <li>Oficinas de la delegación Hidalgo de la SICT</li>
+        <li>Plaza Del Valle</li>
+        <li>PRI Hidalgo</li>
+        <li>Plaza Gran Patio</li>
+        <li>Sexta sección del residencial San Javier</li>
+        <li>Cuartel de la Policía estatal</li>
+        <li>Agencias automotrices KIA y Hyundai</li>
+        <li>El Trébol</li>
+        <li>CBTIS número 8</li>
+        <li>Fraccionamiento de condominios El Chacón</li>
+        <li>Plaza comercial Q</li>
+        <li>Colinas de Plata</li>
+        <li>Cuartel de la Guardia Nacional</li>
+        <li>Walmart Villa Airosa</li>
+        <li>Centro médico Marfil</li>
+        <li>Colonia 11 de Julio</li>
+        <li>Preparatoria 4 de la UAEH</li>
+        <li>Base en la colonia Guadalupe</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 28</h3>
+    <img height="318" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQ_oFgPXYzrT4LL_rbJyUdrAUx4b9-b9ImnZP3c4C7WQis?width=567&amp;height=318" width="567" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1nXrUuwjF_B2DOo4ja2jk8MR_AqDgw4Q&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 10 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 07 - Pachuquilla - Piracantos
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 20 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Salida desde Pachuquilla en Mineral de la Reforma</li>
+        <li>Breve paso por la carretera Pachuca-Tulancingo</li>
+        <li>Parada en la Ciudad del Conocimiento de la UAEH</li>
+        <li>Plaza comercial Universidad</li>
+        <li>Breve base por la colonia 11 de Julio</li>
+        <li>Paso por el paradero de autobuses Estrella Blanca</li>
+        <li>Hospital general de Pachuca</li>
+        <li>Hospital del IMSS</li>
+        <li>Breve paso por la avenida Madero</li>
+        <li>Paradas en los parques Hidalgo o Pasteur según se vaya de ida o regreso</li>
+        <li>Calle Ramírez Ulloa</li>
+        <li>Paso por la plaza Juárez</li>
+        <li>Subida por Fernando Soto</li>
+        <li>Paso por la calle Abasolo, cerca del edificio central de la UAEH</li>
+        <li>Paso por una parte del fraccionamiento El Palmar</li>
+        <li>Aurrera El Palmar</li>
+        <li>Llegada a la colonia Piracantos</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 07</h3>
+    <img height="415" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQSmHgaUd_dfQ4bQ-fU7CqYJATN33mH2xCRsBIcRG-mD_U8?width=739&amp;height=415" width="739" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1JNdOHN4-EHjqZheMR8MEdcfCiQ-uXwo&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 11 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 47 - Carboneras - ICSHu
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en el fraccionamiento Carboneras en Mineral de la Reforma</li>
+        <li>Parada en la Ciudad del Conocimiento de la UAEH</li>
+        <li>Paso por la plaza Universidad</li>
+        <li>Paso por la colonia 11 de Julio</li>
+        <li>Parada en el hospital general de Pachuca y del IMSS</li>
+        <li>Paso por una parte de la avenida Madero</li>
+        <li>Paso por las oficinas de la dirección de servicio social y prácticas profesionales</li>
+        <li>Parada en el parque Pasteur o Hidalgo según se vaya o regrese</li>
+        <li>Paso por el hospital materno infantil</li>
+        <li>Parada a un costado de la plaza Juárez</li>
+        <li>Parada con ligera base en la calle Fernando Soto</li>
+        <li>Subida por el bulevar del Minero</li>
+        <li>Parada en la Preparatoria 3 de la UAEH</li>
+        <li>Paso por el tutelar para adolescentes y por Soriana</li>
+        <li>Paso por el centro de readaptación social (Cereso) de Pachuca</li>
+        <li>Paso por el panteón municipal</li>
+        <li>Desvío hacia la colonia Plutarco Elías Calles</li>
+        <li>Retoma por el bulevar del Minero</li>
+        <li>Paso por la colonia Punta Azul</li>
+        <li>Base en el fraccionamiento Colosio atrás de Instituto de Ciencias Sociales y Humanidades (ICSHu) de la UAEH</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 47</h3>
+    <img height="415" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQSlcKyYetKBSa_mPNokJO4jAXw5NJsgmM08q9z_n-ula6Y?width=739&amp;height=415" width="739" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=16FCWmHe0PeWJYiTX24JF0VelnnIcqMs&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 12 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 06 MRE - San Fernando, central, Plaza Juárez
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en el fraccionamiento San Fernando en Mineral de la Reforma</li>
+        <li>Paso por la universidad ITLA</li>
+        <li>Paso por la carretera Pachuca-Sahagún</li>
+        <li>Paradas en agencias automotrices y empresas</li>
+        <li>Breve recorrido por el bulevar Colosio</li>
+        <li>Paso por la plaza Gran Patio</li>
+        <li>Parada cerca de la plaza Del Valle</li>
+        <li>Sigue por el bulevar Nuevo Hidalgo</li>
+        <li>Breve base en la central camionera de Pachuca</li>
+        <li>Parada en plaza Bella</li>
+        <li>Sigue por el Río de las Avenidas</li>
+        <li>Paso por Sam’s Club</li>
+        <li>Base en plaza Juárez donde se hace el regreso</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 06 MRE</h3>
+    <img height="800" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQSUhW-ct-axSqK3Ae9nKjgLAR497GxFRfc0WLi7cMvPIv4?width=1200&amp;height=800" width="1200" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/u/1/embed?mid=1V8NZO1XAZciCAw1khnLwbhce89tsVq0&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>       
+      <!-- Ruta 13 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 46 - Tilcuautla
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Salida desde San Juan Pachuca</li>
+        <li>El Pato</li>
+        <li>Jardín del Arte</li>
+        <li>Calle Fernando Soto (plaza Juárez)</li>
+        <li>Colonia Morelos</li>
+        <li>Fraccionamiento Aquiles Serdán</li>
+        <li>Piracantos</li>
+        <li>Hospital de la Mujer</li>
+        <li>Punta Azul</li>
+        <li>Bulevar Colosio</li>
+        <li>Instituto de Ciencias Sociales y Humanidades (ICSHu)</li>
+        <li>Instituto de Ciencias de la Salud (ICSa)</li>
+        <li>Instituto de Ciencias Económico Administrativas (ICEA)</li>
+        <li>Base en Tilcuautla</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 46</h3>
+    <img height="415" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQATQ9SaMHeRZI6OGO-3z1DAaFgkXK25_uwGsMnAG1xzIU?width=739&amp;height=415" width="739" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1tqVfmqDOSYw4YpGpeYHL0ysw0ClAF6M&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 14 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 17 sat - Explanada
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Iglesia Nueva Era</li>
+        <li>centro de salud</li>
+        <li>Pemex-Independencia</li>
+        <li>Tecámatl</li>
+        <li>Nopalera</li>
+        <li>El Durazno</li>
+        <li>Nuevo hospital general</li>
+        <li>Ciudad del Conocimiento</li>
+        <li>Tlapacoya</li>
+        <li>semáforo La Loma</li>
+        <li>El Huixmí</li>
+        <li>Residencial Altara</li>
+        <li>Real Madeira</li>
+        <li>Pitayas, Bimbo</li>
+        <li>Congreso del estado</li>
+        <li>plaza Vértice</li>
+        <li>Soriana de Villas</li>
+        <li>Vuelta de antiguo camino de FFCC</li>
+        <li>Glorieta de Villas</li>
+        <li>Además de Aurreá Express de Villas</li>
+        <li>cruce de avenida Las Torres</li>
+        <li>Real Toledo</li>
+        <li>vuelta en avenida La Principal</li>
+        <li>Explanada Pachuca del lado de CHEDRAU</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 17 SAT</h3>
+    <img height="374" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQT5-1h97j_ZRLcpkt8WOgPZAa7UYtZGYxJyClsuPZQ10IE?width=821&amp;height=374" width="821" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1Notz_fNblL3HrnzPX66sJGKFJTDZ0wg&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 15 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 99 PCH C - Hospital general - Huasca
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Base en hospital general de Pachuca</li>
+        <li>Breve recorrido por la avenida Madero</li>
+        <li>Paso por la colonia 11 de Julio</li>
+        <li>Breve recorrido por la carretera Pachuca-Tulancingo</li>
+        <li>Toma por el Corredor de la Montaña</li>
+        <li>Pasa cerca del CEUNI de la UAEH</li>
+        <li>Llegada hasta el pueblo mágico de Real del Monte</li>
+        <li>Parada en el Cecyteh de Omitlán</li>
+        <li>Parada en San José Ocotillo</li>
+        <li>Paso por el centro del pueblo mágico de Huasca</li>
+        <li>Llega hasta inmediaciones del parque ecoturístico El Zembo</li>
+        <li>Base en la vialidad a Ixtula, donde retorna hacia Huasca para regresar a Pachuca</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 99</h3>
+    <img height="400" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQRBRf0dQf9lSIfbUdt8XDohAah0LSOMGhBBzE5xE3cEgpA?width=766&amp;height=400" width="766" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1hpGFZKG7jUh4a_sadoyMpwwrshwWhJ0&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 16 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 09 - Tulipanes - Centro
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Tulipanes</li>
+        <li>Tuzos</li>
+        <li>Everardo Márquez</li>
+        <li>centro</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 09</h3>
+    <img height="415" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQT2BN8xos07R4SiANXxHrWqAaw5L-EjZKY4jyrGL6Y2e4Q?width=739&amp;height=415" width="739" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=10_EzG8osjxbZQWvArTcazmwUvfy7Fbk&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 17 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 52 - tulipanes - Hospital general
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Parque Urbano</li>
+        <li>Fracc. La Colonia</li>
+        <li>Tulipanes</li>
+        <li>Soriana Plaza del Valle</li>
+        <li>Valle de San Javier</li>
+        <li>Sam´s</li>
+        <li>Hospital General</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 52</h3>
+    <img height="415" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQRtlC3NCqsFQqaXibPW5u01AZpqZjRpsT8C1lY5l2hZyhw?width=739&amp;height=415" width="739" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1s_EW1rbX7DRsd3xmzlR7I-nGkVWhSss&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 19 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 69 - Fracc. La Colonia - centro
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Fracc. La Colonia</li>
+        <li>Tulipanes</li>
+        <li>Central de Autobuses</li>
+        <li>centro</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 69</h3>
+    <img height="504" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQRKWsHONFUMTZeAZy6oYuXeAYXQzgImqIj7vM-VAXD1MFg?width=1280&amp;height=504" width="1280" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1HSRSF97diSY87TZF_mXXVkVuaQc_ZDE&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 18.1 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 77 ramal A - San Fernando
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>La Providencia</li>
+        <li>San Fernando</li>
+        <li>Tuzos</li>
+        <li>Tulipanes</li>
+        <li>ICSA</li>
+        <li>Tilcuautla</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 77 ramal A</h3>
+    <img height="700" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQTAe1SjCCmTqllttayJOeEAb5RnI3oz6Fh5BOpf7sTyeo?width=1160&amp;height=700" width="1160" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1VSlH5e48J7-_kKv4F-06o5iHJHr7S7o&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 18..2 -->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 77 ramal B- La Providencia - Tilcuautla
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>La Providencia</li>
+        <li>El Saucillo</li>
+        <li>Conalep</li>
+        <li>Tuzos</li>
+        <li>ICSA</li>
+        <li>Tilcuautla</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 77 ramal B</h3>
+    <img height="700" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQTAe1SjCCmTqllttayJOeEAb5RnI3oz6Fh5BOpf7sTyeo?width=1160&amp;height=700" width="1160" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1IWDMaT7_CNTWTvK_gtBSrYNYkGgbC7I&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+      <!-- Ruta 18..3-->
+<div class="route-card">
+  <div class="route-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+    Ruta 77 ramal C - Quinta Bonita - Centro
+  </div>
+  <div class="route-content">
+    <h3>Características del Transporte</h3>
+    <ul class="feature-list">
+      <li>Horario: 6:00 AM - 10:00 PM</li>
+      <li>Frecuencia: Cada 10 minutos</li>
+    </ul>
+    <h3>Paradas</h3>
+    <div class="stops-list">
+      <ol>
+        <li>Quinta Bonita</li>
+        <li>Tulipanes</li>
+        <li>Tuzos</li>
+        <li>Cubitos</li>
+        <li>Parque Hidalgo</li>
+        <li>Centro</li>
+        <li>viceversa</li>
+      </ol>
+      <p><small>* Los horarios son aproximados y se repiten cada 10 minutos</small></p>
+    </div>
+    <h3>Autobús de la Ruta 77 ramal C</h3>
+    <img height="700" src="https://1drv.ms/i/c/bd58d539dbf23a32/IQQTAe1SjCCmTqllttayJOeEAb5RnI3oz6Fh5BOpf7sTyeo?width=1160&amp;height=700" width="1160" />
+    <h3>Mapa de la Ruta</h3>
+    <iframe height="480" src="https://www.google.com/maps/d/embed?mid=1I4mWRoA42gie7cEjK2Sib5Gov8JUl_w&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+    <p><small>Haz clic en el mapa para ver la ruta en Google Maps</small></p>
+  </div>
+</div>
+<!-- Continúa con las demás rutas insertadas automáticamente -->
+
+  </div>
+  <footer>
+    <p>&copy; 2025 RutasPachuca</p>
+  </footer>
+<script>
+  // Función de búsqueda simple
+  document.querySelector('.search-button').addEventListener('click', function() {
+    const term = document.querySelector('.search-input').value.toLowerCase();
+    const routes = document.querySelectorAll('.route-card');
+
+    routes.forEach(route => {
+      const text = route.textContent.toLowerCase();
+      if (text.includes(term)) {
+        route.style.display = 'block';
+      } else {
+        route.style.display = 'none';
+      }
+    });
+  });
+
+  // Permitir búsqueda con Enter
+  document.querySelector('.search-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      document.querySelector('.search-button').click();
+    }
+  });
+</script>
+</body>
+</html>
