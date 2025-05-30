@@ -1,4 +1,3 @@
-<!-- Archivo con función expandir/colapsar rutas -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,19 +11,35 @@
       margin: 0;
       padding: 0;
     }
-    header, footer {
+    header {
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0.2)), url(https://1drv.ms/i/c/bd58d539dbf23a32/IQTpbxJfuD8WTYqMbOzcgAmDAUyV1UDF1DgQMDjexXEOu7E?);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .u-section-1 .u-text-1 {
+	font-family: Federant;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 440px auto 0 142px;
+    }
+    footer {
       background-color: #004080;
       color: white;
       text-align: center;
       padding: 1rem;
     }
+
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 1rem;
     }
     .search-container {
-      background: white;
+      background: black;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       padding: 1rem;
@@ -44,7 +59,7 @@
     }
     .search-button {
       padding: 10px 20px;
-      background-color: #0066cc;
+      background-color: #68ff40;
       color: white;
       border: none;
       border-radius: 4px;
@@ -54,15 +69,15 @@
       background-color: #004080;
     }
     .route-card {
-      background: white;
+      background: black;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
-      padding: 1rem;
+      padding: 0rem;
     }
     .route-header {
-      background-color: #004080;
-      color: white;
+      background-color: #00ff3c;
+      color: black;
       padding: 1rem;
       border-radius: 4px;
       font-size: 1.2rem;
@@ -74,6 +89,8 @@
     }
     .feature-list, .stops-list ol {
       padding-left: 1.2rem;
+      color: white;
+
     }
     .feature-list li::before {
       content: "✓ ";
@@ -84,14 +101,20 @@
       border-radius: 4px;
       margin-top: 1rem;
     }
+    h2 {
+      margin-top: 1.5rem;
+      color: white;
+    }
     h3 {
       margin-top: 1.5rem;
+      color: white;
     }
+    
   </style>
 </head>
 <body>
   <header>
-    <h1>RutasPachuca</h1>
+      <h1 class=".u-section-1 .u-text-1">RutasPachuca</h1>
     <p>Información completa sobre rutas de transporte público</p>
   </header>
   <div class="container">
